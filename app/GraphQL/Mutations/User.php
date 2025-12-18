@@ -19,4 +19,16 @@ final readonly class User
         return $user;
 
     }
+    public function delete($_, array $args)
+    {
+        $user =ModelUser::find($args['id']);
+        if($user){
+            $user->delete();
+            return "User Deleted Successfully";
+        }else{
+            return "User not Found";
+        }
+        
+
+    }
 }
